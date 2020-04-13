@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mm.demo.dao.LoginMapper">
+    <!-- mapper的简单实现，切记 上面的namespace 改为自己的dao接口的位置-->
+    <select id="login" resultType="com.mm.demo.entity.User">
+        select * from test where name = #{name} and password= #{password}
+    </select>
+
+    <!-- mapper的简单实现，切记 上面的namespace 改为自己的dao接口的位置-->
+    <select id="getUserList" resultType="com.mm.demo.entity.User">
+        select * from test
+    </select>
+
+    <!-- mapper的简单实现，切记 上面的namespace 改为自己的dao接口的位置-->
+    <select id="getUserByName" resultType="com.mm.demo.entity.User">
+        select * from test where name = #{name}
+    </select>
+
+
+    <insert id="addUser" parameterType="com.mm.demo.entity.User">
+        INSERT INTO
+        test
+            (name,password)
+            VALUES
+            (#{name},#{password})
+    </insert>
+
+    <update id="updateUser" parameterType="com.mm.demo.entity.User">
+        UPDATE
+        test
+        SET
+        name=#{name},password=#{password}
+        WHERE
+        id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="com.mm.demo.entity.User">
+        DELETE FROM
+        test
+        WHERE
+        id=#{id}
+    </delete>
+</mapper>

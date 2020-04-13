@@ -1,0 +1,27 @@
+spring:
+  thymeleaf:
+    cache: false  #关闭缓存功能 实时刷新  方便开发
+    servlet:
+      content-type: text/html
+    enabled: true
+    encoding: UTF-8   #指定编码格式
+    mode: HTML
+    prefix: classpath:/templates/   #指定页面路径
+    suffix: .html     #设置后缀
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC    #chen为你自己的数据库库名
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources
+server:
+  port: 8080    #端口
+mybatis:
+  type-aliases-package: com.mm.demo.dao  # mybatis指定 实体类  这样才可以在 *mapper.xml文件中用别名
+  mapper-locations: classpath:Mapper/*Mapper.xml  #指定数据库mapper文件的路径
+
+logging:
+  config: classpath:log4j2.yml
